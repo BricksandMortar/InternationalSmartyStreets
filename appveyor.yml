@@ -41,7 +41,6 @@ after_build:
 
     $regex = '^(\.*\\*\.)*'
 
-
     New-Item $path -type directory
 
     New-Item $path\content -type directory
@@ -50,12 +49,7 @@ after_build:
 
     New-Item $path\content\bin -type directory
 
-
-    Copy-Item $env:APPVEYOR_BUILD_FOLDER\InternationalSmartyStreets\bin\Release\com.bricksandmortarstudio.InternationalSmartyStreets.dll $path\content\bin\
-
-
-    Remove-Item $path\content\bin\* -Include '*-*'
-
+    Copy-Item $env:APPVEYOR_BUILD_FOLDER\InternationalSmartyStreets\bin\Release\com.bricksandmortar.InternationalSmartyStreets.dll $path\content\bin\
 
     Get-ChildItem $path\content\*.* -Recurse | Resolve-Path -Relative | Set-Content $path\uninstall\deletefile.lst
 
